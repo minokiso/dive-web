@@ -1,0 +1,51 @@
+<div style="display: flex; flex-direction: column; align-items: center">
+  <div
+    style="
+      background-image: url('/assets/background.jpg');
+      background-size: cover;
+      min-height: 40vh;
+      width: 100%;
+      background-repeat: no-repeat;
+      position: relative;
+    "
+  >
+    <img
+      style="
+        position: absolute;
+        background-color: white;
+        left: 70%;
+        top: 70%;
+        transform: translate(-50%, -50%) scale(50%);
+      "
+      src="/assets/icon.webp"
+      alt="haha"
+    />
+  </div>
+  <h1>66th International Divers’ Day Rostock</h1>
+  <h2>Germany, Rostock 18 - 21 Jan 2024</h2>
+  <ul nz-menu nzMode="horizontal">
+    <li nz-menu-item nzSelected nzMatchRouter routerLink="athlete">
+      <span nz-icon nzType="user"></span>
+      Athletes
+    </li>
+    <li nz-menu-item nzMatchRouter routerLink="schedule">
+      <span nz-icon nzType="calendar" nzTheme="outline"></span>
+      Schedules
+    </li>
+    <!-- <li nz-menu-item nzMatchRouter routerLink="result">
+      <span nz-icon nzType="appstore"></span>
+      Results
+    </li> -->
+    <li nz-menu-item nzMatchRouter routerLink="medal">
+      <span nz-icon nzType="trophy" nzTheme="outline"></span>
+      Medal Table
+    </li>
+    <li nz-menu-item nzMatchRouter routerLink="about">
+      <span nz-icon nzType="info-circle" nzTheme="outline"></span>
+      About
+    </li>
+  </ul>
+  <div style="width: 80%; margin-top: 20px; margin-bottom: 15%">
+    <router-outlet></router-outlet>
+  </div>
+</div>

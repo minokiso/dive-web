@@ -1,0 +1,40 @@
+<nz-card>
+  <nz-collapse [nzBordered]="false" style="font-size: large; font-weight: bold">
+    @for (date of getKeys(); track date) {
+    <nz-collapse-panel
+      [nzHeader]="date"
+      [nzActive]="schedules[date].isExpanded"
+    >
+      @for(schedule of schedules[date].schedules; track schedule) {
+      <nz-card
+        [nzTitle]="schedule.UtcDateTime | utcToLocal"
+        style="font-size: medium; font-weight: normal"
+      >
+        <div nz-flex nzJustify="space-between">
+          <div>
+            <span style="color: #0d4fad; font-weight: bold">{{
+              schedule.name
+            }}</span>
+            <nz-divider nzType="vertical"></nz-divider>
+            <span>{{ schedule.type }}</span>
+            @if (schedule.type === "Finals") {
+            <nz-divider nzType="vertical"></nz-divider>
+            <span
+              nz-icon
+              nzType="trophy"
+              nzTheme="outline"
+              nzTwotoneColor="0xFFFAAD14"
+            ></span>
+            }
+          </div>
+          <button nz-button nzType="text" (click)="showDetail(schedule)">
+            Click to show details
+            <span nz-icon nzType="right" nzTheme="outline"></span>
+          </button>
+        </div>
+      </nz-card>
+      }
+    </nz-collapse-panel>
+    }
+  </nz-collapse>
+</nz-card>

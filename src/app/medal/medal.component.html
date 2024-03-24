@@ -1,0 +1,41 @@
+<nz-card>
+  <nz-table
+    #basicTable
+    [nzData]="medals"
+    [nzScroll]="{ x: '800px' }"
+    [nzPageSize]="20"
+    nzShowPagination="false"
+  >
+    <thead>
+      <tr>
+        <th nzWidth="80px">Rank</th>
+        <th nzWidth="120px">Country</th>
+        <th style="background-color: #ffcf57">Gold</th>
+        <th style="background-color: #cccccc">Silver</th>
+        <th style="background-color: #b19656">Bronze</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let medal of basicTable.data">
+        <td>{{ medal.Rank }}</td>
+        <td>
+          <nz-avatar
+            [nzSize]="20"
+            nzSrc="https://www.worldaquatics.com/resources/v2.11.7/i/elements/flags/{{
+              medal.CountryCode.toLowerCase()
+            }}.png"
+          ></nz-avatar>
+          <nz-divider [nzType]="'vertical'"></nz-divider>
+          <span>
+            {{ medal.CountryCode }}
+          </span>
+        </td>
+        <td style="background-color: #ffecc0">{{ medal.Gold }}</td>
+        <td style="background-color: #f3f3f3">{{ medal.Silver }}</td>
+        <td style="background-color: #eee7d5">{{ medal.Bronze }}</td>
+        <td>{{ medal.TotalCount }}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</nz-card>

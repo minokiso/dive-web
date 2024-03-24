@@ -1,0 +1,41 @@
+<nz-card>
+  <nz-table #basicTable [nzData]="athletes">
+    <thead>
+      <tr>
+        <th nzWidth="130px">Country</th>
+        <th>Athlete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let athlete of basicTable.data">
+        <td>
+          <nz-avatar
+            [nzSize]="20"
+            nzSrc="https://www.worldaquatics.com/resources/v2.11.7/i/elements/flags/{{
+              athlete.CountryCode.toLowerCase()
+            }}.png"
+          ></nz-avatar>
+          <nz-divider [nzType]="'vertical'"></nz-divider>
+
+          <span>
+            {{ athlete.CountryCode }}
+          </span>
+        </td>
+        <td>
+          <nz-avatar
+            [nzSize]="40"
+            [nzSrc]="athlete.image"
+            nzIcon="user"
+          ></nz-avatar>
+          <nz-divider [nzType]="'vertical'"></nz-divider>
+          <span>
+            {{ athlete.FirstName }}
+          </span>
+          <span>
+            {{ athlete.LastName }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</nz-card>

@@ -1,0 +1,48 @@
+<nz-table
+  #basicTable
+  [nzData]="results"
+  [nzScroll]="{ x: '800px' }"
+  [nzPageSize]="20"
+>
+  <thead>
+    <tr>
+      <th nzWidth="80px">Rank</th>
+      <th nzWidth="120px">Country</th>
+      <th nzWidth="250px">Athlete</th>
+      <th>Age</th>
+      <th>Points</th>
+      <th>Pts Behind</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of basicTable.data">
+      <td>{{ result.Rank }}</td>
+      <td>
+        <nz-avatar
+          [nzSize]="20"
+          nzSrc="https://www.worldaquatics.com/resources/v2.11.7/i/elements/flags/{{
+            result.NAT.toLowerCase()
+          }}.png"
+        ></nz-avatar>
+        <nz-divider [nzType]="'vertical'"></nz-divider>
+        <span>
+          {{ result.NAT }}
+        </span>
+      </td>
+      <td>
+        <nz-avatar
+          [nzSize]="30"
+          [nzSrc]="result.image"
+          nzIcon="user"
+        ></nz-avatar>
+        <nz-divider [nzType]="'vertical'"></nz-divider>
+        <span>
+          {{ result.FullName }}
+        </span>
+      </td>
+      <td>{{ result.AthleteResultAge }}</td>
+      <td>{{ result.TotalPoints }}</td>
+      <td>{{ result.PointsBehind }}</td>
+    </tr>
+  </tbody>
+</nz-table>
