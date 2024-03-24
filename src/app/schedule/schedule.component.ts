@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { UtcToLocalPipe } from '../utc-to-local.pipe';
 import { NzDrawerService } from 'ng-zorro-antd/drawer';
 import { ResultComponent } from '../result/result.component';
+import { baseUrl } from '../app.config';
 
 @Component({
   selector: 'app-schedule',
@@ -23,7 +24,7 @@ export class ScheduleComponent {
     return Object.keys(this.schedules);
   }
   getSchedules() {
-    this.http.get('http://127.0.0.1:8000/schedule').subscribe((res) => {
+    this.http.get(`${baseUrl}/schedule`).subscribe((res) => {
       this.schedules = this.groupByDate(res);
       console.log(this.schedules);
     });

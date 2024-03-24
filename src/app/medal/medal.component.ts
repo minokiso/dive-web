@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgZorroModule } from '../ng-zorro.module';
 import { HttpClient } from '@angular/common/http';
+import { baseUrl } from '../app.config';
 
 @Component({
   selector: 'app-medal',
@@ -14,7 +15,7 @@ export class MedalComponent {
   loading = false;
   medals: any = [];
   getMedals() {
-    this.http.get('http://127.0.0.1:8000/medal').subscribe((res) => {
+    this.http.get(`${baseUrl}/medal`).subscribe((res) => {
       this.medals = res;
     });
   }

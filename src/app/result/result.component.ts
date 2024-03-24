@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { NgZorroModule } from '../ng-zorro.module';
 import { HttpClient } from '@angular/common/http';
 import { Observable, filter, first, map } from 'rxjs';
+import { baseUrl } from '../app.config';
 
 @Component({
   selector: 'app-result',
@@ -17,7 +18,7 @@ export class ResultComponent {
 
   getImage(ResultId: string): Observable<any> {
     return this.http
-      .put<any>('http://127.0.0.1:8000/athlete', {
+      .put<any>(`${baseUrl}/athlete`, {
         ResultId: ResultId.slice(1, ResultId.length),
       })
       .pipe(
